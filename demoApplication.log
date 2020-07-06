@@ -1,0 +1,50 @@
+[main] INFO  Main  - vectors : Vector@3ada9e37 , Vector@5cbc508c
+[main] INFO  Main  - new vector : Vector@59690aa4
+[main] INFO  Main  - add v3 to v1 : Vector@3ada9e37
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector@6842775d
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=7)
+[main] INFO  Main  - new vector : Vector(x=2, y=5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=8)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=15)
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=7)
+[main] INFO  Main  - new vector : Vector(x=2, y=5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=8)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=15)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=8)
+[main] INFO  Main  - angle between vec4 and vec3 : 0.08314123188844197
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=7)
+[main] INFO  Main  - new vector : Vector(x=2, y=5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=8)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=15)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=8)
+[main] INFO  Main  - angle between vec4 and vec3 : 0.26119588331113475
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=7)
+[main] INFO  Main  - new vector : Vector(x=2, y=5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=8)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=15)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=8)
+[main] INFO  Main  - angle between vec4 and vec3 : 4.76364169072622
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=70)
+[main] INFO  Main  - new vector : Vector(x=2, y=5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=8)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=78)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=8)
+[main] INFO  Main  - angle between vec4 and vec3 : 4.76364169072622
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=8)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=3)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=8)
+[main] INFO  Main  - angle between vec4 and vec3 : 4.76364169072622
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=8)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=3)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=8)
+[main] INFO  Main  - angle between vec4 and vec3 : 4.76364169072622
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
