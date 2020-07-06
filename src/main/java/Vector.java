@@ -67,6 +67,6 @@ public class Vector {
         angle = Math.acos(angle);
         angle = Math.toDegrees(angle);
 
-        return angle;
+        return angle < 180 ? angle : 360 - Math.abs(angle);
     }
 }

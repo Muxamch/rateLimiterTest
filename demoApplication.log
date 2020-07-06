@@ -199,3 +199,14 @@ java.io.FileNotFoundException: src\main\resources (Access is denied)
 [main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
 [main] INFO  Main  - VECTORS FROM JSON [Vector(x=1, y=40), Vector(x=20, y=4), Vector(x=3, y=8)]
 [main] INFO  Main  - angle between vectors from JSON : 77.25797134181514
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] INFO  Main  - VECTORS FROM JSON [Vector(x=1, y=40), Vector(x=20, y=4), Vector(x=3, y=8)]
+[main] INFO  Main  - angle between vectors from JSON : 77.25797134181514
