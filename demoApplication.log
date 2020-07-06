@@ -48,3 +48,154 @@
 [main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
 [main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
 [main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 0.7266423406817257
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 0.7266423406817257
+[main] INFO  Main  - ANGLE TEST : 0.12435499454676072
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Vector  - 0.7474093186836597
+[main] INFO  Main  - angle between vec4 and vec3 : 0.7266423406817257
+[main] INFO  Vector  - 0.9922778767136677
+[main] INFO  Main  - ANGLE TEST : 0.12435499454676072
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] ERROR Main  - error : 
+java.io.FileNotFoundException: file:resources\json_vectors.json (The filename, directory name, or volume label syntax is incorrect)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:212)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:154)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:916)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3319)
+	at JsonHandler.getVectorsFromJson(JsonHandler.java:15)
+	at Main.main(Main.java:49)
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] ERROR Main  - error : 
+java.io.FileNotFoundException: \resources\json_vectors.json (The system cannot find the path specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:212)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:154)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:916)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3319)
+	at JsonHandler.getVectorsFromJson(JsonHandler.java:15)
+	at Main.main(Main.java:49)
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] ERROR Main  - error : 
+java.io.FileNotFoundException: src\main\resources (Access is denied)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:212)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:154)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:916)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3319)
+	at JsonHandler.getVectorsFromJson(JsonHandler.java:15)
+	at Main.main(Main.java:49)
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] INFO  Main  - [Vector(x=1, y=40), Vector(x=20, y=4), Vector(x=3, y=8)]
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] INFO  Main  - angle between vectors from JSON : 77.25797134181514
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] INFO  Main  - VECTORS FROM JSON [Vector(x=1, y=40), Vector(x=20, y=4), Vector(x=3, y=8)]
+[main] INFO  Main  - angle between vectors from JSON : 77.25797134181514
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] INFO  Main  - VECTORS FROM JSON [Vector(x=1, y=40), Vector(x=20, y=4), Vector(x=3, y=8)]
+[main] INFO  Main  - angle between vectors from JSON : 77.25797134181514
+[main] INFO  Main  - vectors : Vector(x=2, y=3) , Vector(x=6, y=-5)
+[main] INFO  Main  - new vector : Vector(x=2, y=-5)
+[main] INFO  Main  - add v3 to v1 : Vector(x=4, y=-2)
+[main] INFO  Main  - sum ov v1 and v2, new v4 : Vector(x=10, y=-7)
+[main] INFO  Main  - vec4 sub vec2 : Vector(x=4, y=-2)
+[main] INFO  Main  - angle between vec4 and vec3 : 41.63353933657021
+[main] INFO  Main  - ANGLE TEST : 7.125016348901757
+[main] INFO  Main  - lenght of vector 44.47213595499958
+[main] INFO  Main  - vector from points x5y6, x7y8 : Vector(x=2, y=2)
+[main] INFO  Main  - VECTORS FROM JSON [Vector(x=1, y=40), Vector(x=20, y=4), Vector(x=3, y=8)]
+[main] INFO  Main  - angle between vectors from JSON : 77.25797134181514
