@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 
 @Getter
 @Setter
-public class SwingUse implements ActionListener {
+public class SwingUse { // здесь было наследование от Listener
 
     private static final Logger LOGGER = Logger.getLogger(SwingUse.class);
 
@@ -28,20 +28,25 @@ public class SwingUse implements ActionListener {
         this.label = new JLabel("Empty");
         label.setBounds(100,400,250,50);
         buttonSum = new JButton("Сумма");
-        buttonSum.setBounds(25,100,75,60);
-        buttonSum.addActionListener(this);
+        buttonSum.setBounds(25,100,80,40);
+        //buttonSum.addActionListener(this);
+        buttonSum.addActionListener(e -> actionPerformed(e));
         buttonSub = new JButton("Разница");
-        buttonSub.setBounds(25,200,75,60);
-        buttonSub.addActionListener(this);
+        buttonSub.setBounds(25,200,80,40);
+        //buttonSub.addActionListener(this);
+        buttonSub.addActionListener(e -> actionPerformed(e));
         buttonLength = new JButton("Длина");
-        buttonLength.setBounds(125,100,75,60);
-        buttonLength.addActionListener(this);
+        buttonLength.setBounds(125,100,80,40);
+        //buttonLength.addActionListener(this);
+        buttonLength.addActionListener(e -> actionPerformed(e));
         buttonAngle = new JButton("Угол");
-        buttonAngle.setBounds(125,200,75,60);
-        buttonAngle.addActionListener(this);
+        buttonAngle.setBounds(125,200,80,40);
+        //buttonAngle.addActionListener(this);
+        buttonAngle.addActionListener(e -> actionPerformed(e));
         buttonReset = new JButton("Reset");
-        buttonReset.setBounds(25, 300, 75, 60);
-        buttonReset.addActionListener(this);
+        buttonReset.setBounds(25, 300, 80, 40);
+        //buttonReset.addActionListener(this);
+        buttonReset.addActionListener(e -> actionPerformed(e));
         vector1x = new JTextField("vector 1 x");
         vector1x.setBounds(10,1,85,40);
         vector1y = new JTextField("vector 1 y");

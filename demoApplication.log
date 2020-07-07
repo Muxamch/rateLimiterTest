@@ -541,3 +541,10 @@ java.io.FileNotFoundException: src\main\resources (Access is denied)
 [AWT-EventQueue-0] INFO  Vector  - 1.380354073444409
 [AWT-EventQueue-0] INFO  SwingUse  - 1.380354073444409
 [AWT-EventQueue-0] INFO  Vector  - 1.380354073444409
+[main] INFO  Vector  - 1.380354073444409
+[main] INFO  Main  - 1.380354073444409
+[AWT-EventQueue-0] INFO  Vector  - 5.906141113770558
+[AWT-EventQueue-0] INFO  SwingUse  - 5.906141113770558
+[AWT-EventQueue-0] INFO  Vector  - 5.906141113770558
+[AWT-EventQueue-0] INFO  SwingUse  - 5.906141113770558
+[AWT-EventQueue-0] INFO  Vector  - 5.906141113770558
