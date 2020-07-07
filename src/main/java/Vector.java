@@ -66,7 +66,7 @@ public class Vector {
         //LOGGER.info(angle);
         angle = Math.acos(angle);
         angle = Math.toDegrees(angle);
-
-        return angle < 180 ? angle : 360 - Math.abs(angle);
+        LOGGER.info(angle);
+        return angle;
     }
 }

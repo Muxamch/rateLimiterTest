@@ -10,7 +10,14 @@ public class Main {
     public static void main(String[] args) {
         Vector vector1 = new Vector(2,3);
         Vector vector2 = new Vector(6,-5);
+        LOGGER.info(Vector.getAngleBetweenVectors(new Vector(5,6), new Vector(7,8)));
 
+
+        SwingUse frame = new SwingUse();
+
+
+
+        /*
         LOGGER.info("vectors : "+vector1+" , "+vector2);
 
         Vector vector3 = new Vector(2,-5);
@@ -50,11 +57,25 @@ public class Main {
         try {
             vectors = JsonHandler.getVectorsFromJson();
         } catch (IOException e) {
-            LOGGER.error("error : ",e);
+            LOGGER.error("error output : ",e);
         }
         double angleTest2 = Vector.getAngleBetweenVectors(vectors.get(0), vectors.get(1));
         LOGGER.info("VECTORS FROM JSON "+vectors);
 
         LOGGER.info("angle between vectors from JSON : "+angleTest2);
+
+        Vector vectorIn = new Vector(10,20);
+        Vector vectorIn2 = new Vector(113,20);
+        JsonHandler jHandler = new JsonHandler();
+
+        try{
+            jHandler.setVectorInJson(vectorIn);
+            jHandler.setVectorInJson(vectorIn2);
+        } catch (IOException e){
+            LOGGER.error("error input : ",e);
+        }
+        */
+
+
     }
 }
