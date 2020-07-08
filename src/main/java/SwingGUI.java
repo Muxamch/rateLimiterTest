@@ -8,17 +8,16 @@ import java.awt.event.ActionEvent;
 
 @Getter
 @Setter
-public class SwingUse { // здесь было наследование от Listener
+public class SwingGUI { // здесь было наследование от Listener
 
-    private static final Logger LOGGER = Logger.getLogger(SwingUse.class);
+    private static final Logger LOGGER = Logger.getLogger(SwingGUI.class);
 
-    private boolean newInput;
     private JFrame frame, resultFrame;
     private JLabel label;
     private JButton buttonSum, buttonSub, buttonLength, buttonAngle, buttonReset;
     private JTextField vector1x, vector1y, vector2x, vector2y;
 
-    SwingUse(){
+    SwingGUI(){
         this.frame = new JFrame("Vectors");
         frame.setSize(500,600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
