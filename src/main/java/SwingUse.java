@@ -1,22 +1,19 @@
-import lombok.extern.java.Log;
+
 import org.apache.log4j.Logger;
 import lombok.*;
-import org.apache.log4j.Logger;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.stream.IntStream;
+
 
 
 @Getter
 @Setter
-public class SwingUse implements ActionListener {
+public class SwingUse { // здесь было наследование от Listener
 
     private static final Logger LOGGER = Logger.getLogger(SwingUse.class);
 
     private boolean newInput;
-    private JFrame frame;
+    private JFrame frame, resultFrame;
     private JLabel label;
     private JButton buttonSum, buttonSub, buttonLength, buttonAngle, buttonReset;
     private JTextField vector1x, vector1y, vector2x, vector2y;
@@ -26,22 +23,27 @@ public class SwingUse implements ActionListener {
         frame.setSize(500,600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.label = new JLabel("Empty");
-        label.setBounds(100,400,250,50);
+        //label.setBounds(100,400,250,50);
         buttonSum = new JButton("Сумма");
-        buttonSum.setBounds(25,100,75,60);
-        buttonSum.addActionListener(this);
+        buttonSum.setBounds(25,100,80,40);
+        //buttonSum.addActionListener(this);
+        buttonSum.addActionListener(e -> actionPerformed(e));
         buttonSub = new JButton("Разница");
-        buttonSub.setBounds(25,200,75,60);
-        buttonSub.addActionListener(this);
+        buttonSub.setBounds(25,200,80,40);
+        //buttonSub.addActionListener(this);
+        buttonSub.addActionListener(e -> actionPerformed(e));
         buttonLength = new JButton("Длина");
-        buttonLength.setBounds(125,100,75,60);
-        buttonLength.addActionListener(this);
+        buttonLength.setBounds(125,100,80,40);
+        //buttonLength.addActionListener(this);
+        buttonLength.addActionListener(e -> actionPerformed(e));
         buttonAngle = new JButton("Угол");
-        buttonAngle.setBounds(125,200,75,60);
-        buttonAngle.addActionListener(this);
+        buttonAngle.setBounds(125,200,80,40);
+        //buttonAngle.addActionListener(this);
+        buttonAngle.addActionListener(e -> actionPerformed(e));
         buttonReset = new JButton("Reset");
-        buttonReset.setBounds(25, 300, 75, 60);
-        buttonReset.addActionListener(this);
+        buttonReset.setBounds(25, 300, 80, 40);
+        //buttonReset.addActionListener(this);
+        buttonReset.addActionListener(e -> actionPerformed(e));
         vector1x = new JTextField("vector 1 x");
         vector1x.setBounds(10,1,85,40);
         vector1y = new JTextField("vector 1 y");
@@ -59,7 +61,7 @@ public class SwingUse implements ActionListener {
         frame.add(vector1y);
         frame.add(vector2x);
         frame.add(vector2y);
-        frame.add(label);
+
         frame.setLayout(new SpringLayout());
         frame.setLayout(null);
         frame.setVisible(true);
@@ -71,15 +73,18 @@ public class SwingUse implements ActionListener {
             case "Сумма" -> {
                 Vector vectorSum1 = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
                 Vector vectorSum2 = new Vector(Integer.parseInt(vector2x.getText()), Integer.parseInt(vector2y.getText()));
+                resultFrame();
                 label.setText(Vector.getSumOfVector(vectorSum1, vectorSum2).toString());
             }
             case "Разница" -> {
                 Vector vectorSub1 = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
                 Vector vectorSub2 = new Vector(Integer.parseInt(vector2x.getText()), Integer.parseInt(vector2y.getText()));
+                resultFrame();
                 label.setText(Vector.getSubtractionOfVector(vectorSub1, vectorSub2).toString());
             }
             case "Длина" -> {
                 Vector vectorLength = new Vector((Integer.parseInt(vector1x.getText())), Integer.parseInt(vector1y.getText()));
+                resultFrame();
                 label.setText(String.valueOf(Vector.getVectorLength(vectorLength)));
             }
             case "Угол" -> {
@@ -87,6 +92,7 @@ public class SwingUse implements ActionListener {
                 Vector vectorAngle2 = new Vector((Integer.parseInt(vector2x.getText())), Integer.parseInt(vector2y.getText()));
                 LOGGER.info(String.valueOf(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2)));
                 LOGGER.info(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2));
+                resultFrame();
                 label.setText(String.valueOf(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2)));
             }
             case "Reset" -> {
@@ -98,6 +104,14 @@ public class SwingUse implements ActionListener {
                 break;
             }
         }
+    }
+
+    private void resultFrame(){
+        this.resultFrame = new JFrame("Result");
+        resultFrame.setSize(500,600);
+        resultFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        resultFrame.add(label);
+        this.resultFrame.setVisible(true);
     }
 
 }
