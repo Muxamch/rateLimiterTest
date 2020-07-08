@@ -2,6 +2,7 @@
 import org.apache.log4j.Logger;
 import lombok.*;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.LinkedList;
 
@@ -19,41 +20,31 @@ public class SwingGUI { // здесь было наследование от Lis
 
     SwingGUI(){
         this.frame = new JFrame("Vectors");
-        frame.setSize(500,600);
+        frame.setSize(300,400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         this.resultFrame = new JFrame("Result");
         resultFrame.setSize(250,100);
         resultFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
         this.label = new JLabel("Empty");
-        //label.setBounds(100,400,250,50);
+
         buttonSum = new JButton("Сумма");
-        buttonSum.setBounds(25,100,80,40);
-        //buttonSum.addActionListener(this);
         buttonSum.addActionListener(this::actionPerformed);
         buttonSub = new JButton("Разница");
-        buttonSub.setBounds(25,200,80,40);
-        //buttonSub.addActionListener(this);
         buttonSub.addActionListener(this::actionPerformed);
         buttonLength = new JButton("Длина");
-        buttonLength.setBounds(125,100,80,40);
-        //buttonLength.addActionListener(this);
         buttonLength.addActionListener(this::actionPerformed);
         buttonAngle = new JButton("Угол");
-        buttonAngle.setBounds(125,200,80,40);
-        //buttonAngle.addActionListener(this);
         buttonAngle.addActionListener(this::actionPerformed);
         buttonReset = new JButton("Reset");
-        buttonReset.setBounds(25, 300, 80, 40);
-        //buttonReset.addActionListener(this);
         buttonReset.addActionListener(this::actionPerformed);
-        vector1x = new JTextField("vector 1 x");
-        vector1x.setBounds(10,1,85,40);
-        vector1y = new JTextField("vector 1 y");
-        vector1y.setBounds(10,50,85,40);
-        vector2x = new JTextField("vector 2 x");
-        vector2x.setBounds(100,1,85,40);
-        vector2y = new JTextField("vector 2 y");
-        vector2y.setBounds(100,50,85,40);
+
+        vector1x = new JTextField("   vector 1 x   ");
+        vector1y = new JTextField("   vector 1 y   ");
+        vector2x = new JTextField("   vector 2 x   ");
+        vector2y = new JTextField("   vector 2 y   ");
+
         frame.add(buttonSum);
         frame.add(buttonSub);
         frame.add(buttonLength);
@@ -63,9 +54,10 @@ public class SwingGUI { // здесь было наследование от Lis
         frame.add(vector1y);
         frame.add(vector2x);
         frame.add(vector2y);
+
         resultFrame.add(label);
-        //frame.setLayout(new SpringLayout());
-        frame.setLayout(null);
+        resultFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
+        frame.setLayout(new FlowLayout(FlowLayout.CENTER, 25 ,25));
         frame.setVisible(true);
     }
 
@@ -73,59 +65,60 @@ public class SwingGUI { // здесь было наследование от Lis
         String command = event.getActionCommand();
         switch (command) {
             case "Сумма" -> {
-                if(!errorEmptyBox(true)){
+                if(!checkForErrorEmptyBox(true)){
                     errorBox(false);
                     break;
                 }
-                Vector vectorSum1 = new Vector(Integer.parseInt(vector1x.getText().replaceAll("\\s+","")), Integer.parseInt(vector1y.getText().replaceAll("\\s+","")));
-                Vector vectorSum2 = new Vector(Integer.parseInt(vector2x.getText().replaceAll("\\s+","")), Integer.parseInt(vector2y.getText().replaceAll("\\s+","")));
+                Vector vectorSum1 = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
+                Vector vectorSum2 = new Vector(Integer.parseInt(vector2x.getText()), Integer.parseInt(vector2y.getText()));
+                label.setText("New " + Vector.getSumOfVector(vectorSum1, vectorSum2).toString());
                 resultFrame();
-                label.setText(Vector.getSumOfVector(vectorSum1, vectorSum2).toString());
             }
             case "Разница" -> {
-                if(!errorEmptyBox(true)){
+                if(!checkForErrorEmptyBox(true)){
                     errorBox(false);
                     break;
                 }
-                Vector vectorSub1 = new Vector(Integer.parseInt(vector1x.getText().replaceAll("\\s+","")), Integer.parseInt(vector1y.getText().replaceAll("\\s+","")));
-                Vector vectorSub2 = new Vector(Integer.parseInt(vector2x.getText().replaceAll("\\s+","")), Integer.parseInt(vector2y.getText().replaceAll("\\s+","")));
+                Vector vectorSub1 = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
+                Vector vectorSub2 = new Vector(Integer.parseInt(vector2x.getText()), Integer.parseInt(vector2y.getText()));
+                label.setText("New " + Vector.getSubtractionOfVector(vectorSub1, vectorSub2).toString());
                 resultFrame();
-                label.setText(Vector.getSubtractionOfVector(vectorSub1, vectorSub2).toString());
             }
             case "Длина" -> {
-                if(!errorEmptyBox(false)){
+                if(!checkForErrorEmptyBox(false)){
                     errorBox(false);
                     break;
                 }
-                Vector vectorLength = new Vector((Integer.parseInt(vector1x.getText().replaceAll("\\s+",""))), Integer.parseInt(vector1y.getText().replaceAll("\\s+","")));
+                Vector vectorLength = new Vector((Integer.parseInt(vector1x.getText())), Integer.parseInt(vector1y.getText()));
+                label.setText("Длина = "+ Vector.getVectorLength(vectorLength));
                 resultFrame();
-                label.setText(String.valueOf(Vector.getVectorLength(vectorLength)));
             }
             case "Угол" -> {
-                if((vector1x.getText().equals("0") && vector1y.getText().equals("0") || (vector2x.getText().equals("0") && vector2y.getText().equals("0")))){
+                if((vector1x.getText().equals("0") && vector1y.getText().equals("0") ||
+                        (vector2x.getText().equals("0") && vector2y.getText().equals("0")))){
                     errorBox(true);
                     break;
                 }
-                if(!errorEmptyBox(true)){
+                if(!checkForErrorEmptyBox(true)){
                     errorBox(false);
                     break;
                 }
-                Vector vectorAngle1 = new Vector((Integer.parseInt(vector1x.getText().replaceAll("\\s+",""))), Integer.parseInt(vector1y.getText().replaceAll("\\s+","")));
-                Vector vectorAngle2 = new Vector((Integer.parseInt(vector2x.getText().replaceAll("\\s+",""))), Integer.parseInt(vector2y.getText().replaceAll("\\s+","")));
-                //LOGGER.info(String.valueOf(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2)));
-                //LOGGER.info(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2));
-                resultFrame();
+                Vector vectorAngle1 = new Vector((Integer.parseInt(vector1x.getText())), Integer.parseInt(vector1y.getText()));
+                Vector vectorAngle2 = new Vector((Integer.parseInt(vector2x.getText())), Integer.parseInt(vector2y.getText()));
                 try{
-                    label.setText(String.valueOf(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2)));
+                    label.setText("Угол = "+ Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2));
                 } catch (Exception e) {
                     LOGGER.error("error : ",e);
                 }
+                resultFrame();
             }
             case "Reset" -> {
-                vector1x.setText("vector 1 x");
-                vector1y.setText("vector 1 y");
-                vector2x.setText("vector 2 x");
-                vector2y.setText("vector 2 y");
+                vector1x.setText("   vector 1 x   ");
+                vector1y.setText("   vector 1 y   ");
+                vector2x.setText("   vector 2 x   ");
+                vector2y.setText("   vector 2 y   ");
+                resultFrame.setVisible(false);
+                resultFrame.dispose();
             }
         }
     }
@@ -143,12 +136,19 @@ public class SwingGUI { // здесь было наследование от Lis
             JOptionPane.showMessageDialog(null, "Заполните пожалуйста все нужные поля числами");
         }
     }
-    private boolean errorEmptyBox(boolean fourVectors){
-
+    private boolean checkForErrorEmptyBox(boolean fourVectors){
+        vector1x.setText(vector1x.getText().replaceAll("\\s+","")); //убираем пробелы
+        vector1y.setText(vector1y.getText().replaceAll("\\s+",""));
+        vector2x.setText(vector2x.getText().replaceAll("\\s+",""));
+        vector2y.setText(vector2y.getText().replaceAll("\\s+",""));
         if(fourVectors){
-            return vector1x.getText().matches("-?\\d+(\\.\\d+)?") && vector1y.getText().matches("-?\\d+(\\.\\d+)?") && vector2x.getText().matches("-?\\d+(\\.\\d+)?") && vector2y.getText().matches("-?\\d+(\\.\\d+)?");
+            return (vector1x.getText().matches("-?\\d+(\\.\\d+)?") &&
+                    vector1y.getText().matches("-?\\d+(\\.\\d+)?") &&
+                    vector2x.getText().matches("-?\\d+(\\.\\d+)?") &&
+                    vector2y.getText().matches("-?\\d+(\\.\\d+)?")); //проверяем, если есть цифры
         } else {
-            return vector1x.getText().matches("-?\\d+(\\.\\d+)?") && vector1y.getText().matches("-?\\d+(\\.\\d+)?");
+            return vector1x.getText().matches("-?\\d+(\\.\\d+)?") &&
+                    vector1y.getText().matches("-?\\d+(\\.\\d+)?");
         }
     }
 
