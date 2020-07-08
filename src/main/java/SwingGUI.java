@@ -67,8 +67,8 @@ public class SwingGUI { // здесь было наследование от Lis
         frame.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent e){
-        String command = e.getActionCommand();
+    public void actionPerformed(ActionEvent event){
+        String command = event.getActionCommand();
         switch (command) {
             case "Сумма" -> {
                 Vector vectorSum1 = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
@@ -90,10 +90,14 @@ public class SwingGUI { // здесь было наследование от Lis
             case "Угол" -> {
                 Vector vectorAngle1 = new Vector((Integer.parseInt(vector1x.getText())), Integer.parseInt(vector1y.getText()));
                 Vector vectorAngle2 = new Vector((Integer.parseInt(vector2x.getText())), Integer.parseInt(vector2y.getText()));
-                LOGGER.info(String.valueOf(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2)));
-                LOGGER.info(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2));
+                //LOGGER.info(String.valueOf(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2)));
+                //LOGGER.info(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2));
                 resultFrame();
-                label.setText(String.valueOf(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2)));
+                try{
+                    label.setText(String.valueOf(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2)));
+                } catch (Exception e) {
+                    LOGGER.error("error : ",e);
+                }
             }
             case "Reset" -> {
                 vector1x.setText("vector 1 x");

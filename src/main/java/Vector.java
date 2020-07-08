@@ -61,7 +61,10 @@ public class Vector {
     }
 
     //Угол между векторами
-    public static double getAngleBetweenVectors(Vector vector1, Vector vector2){
+    public static double getAngleBetweenVectors(Vector vector1, Vector vector2) throws Exception{
+        if((vector1.x == 0 && vector1.y == 0) || (vector2.x == 0 && vector2.y == 0)){
+            throw new Exception("Нельзя посчитать угол нулевого вектора");
+        }
         double angle = (vector1.x * vector2.x + vector1.y * vector2.y)/(Math.sqrt(vector1.x * vector1.x + vector1.y * vector1.y) * Math.sqrt(vector2.x * vector2.x + vector2.y * vector2.y));
         //LOGGER.info(angle);
         angle = Math.acos(angle);

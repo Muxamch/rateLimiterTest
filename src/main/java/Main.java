@@ -10,8 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Vector vector1 = new Vector(2,3);
         Vector vector2 = new Vector(6,-5);
-        LOGGER.info(Vector.getAngleBetweenVectors(new Vector(5,6), new Vector(7,8)));
-
+        //LOGGER.info(Vector.getAngleBetweenVectors(new Vector(5,6), new Vector(7,8)));
 
         SwingGUI frame = new SwingGUI();
 
