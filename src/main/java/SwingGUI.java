@@ -17,6 +17,7 @@ public class SwingGUI { // здесь было наследование от Lis
     private JButton buttonSum, buttonSub, buttonLength, buttonAngle, buttonReset;
     private JTextField vector1x, vector1y, vector2x, vector2y;
 
+
     SwingGUI(){
         this.frame = new JFrame("Vectors");
         frame.setSize(500,600);
@@ -26,23 +27,23 @@ public class SwingGUI { // здесь было наследование от Lis
         buttonSum = new JButton("Сумма");
         buttonSum.setBounds(25,100,80,40);
         //buttonSum.addActionListener(this);
-        buttonSum.addActionListener(e -> actionPerformed(e));
+        buttonSum.addActionListener(this::actionPerformed);
         buttonSub = new JButton("Разница");
         buttonSub.setBounds(25,200,80,40);
         //buttonSub.addActionListener(this);
-        buttonSub.addActionListener(e -> actionPerformed(e));
+        buttonSub.addActionListener(this::actionPerformed);
         buttonLength = new JButton("Длина");
         buttonLength.setBounds(125,100,80,40);
         //buttonLength.addActionListener(this);
-        buttonLength.addActionListener(e -> actionPerformed(e));
+        buttonLength.addActionListener(this::actionPerformed);
         buttonAngle = new JButton("Угол");
         buttonAngle.setBounds(125,200,80,40);
         //buttonAngle.addActionListener(this);
-        buttonAngle.addActionListener(e -> actionPerformed(e));
+        buttonAngle.addActionListener(this::actionPerformed);
         buttonReset = new JButton("Reset");
         buttonReset.setBounds(25, 300, 80, 40);
         //buttonReset.addActionListener(this);
-        buttonReset.addActionListener(e -> actionPerformed(e));
+        buttonReset.addActionListener(this::actionPerformed);
         vector1x = new JTextField("vector 1 x");
         vector1x.setBounds(10,1,85,40);
         vector1y = new JTextField("vector 1 y");
@@ -100,7 +101,6 @@ public class SwingGUI { // здесь было наследование от Lis
                 vector2x.setText("vector 2 x");
                 vector2y.setText("vector 2 y");
                 label.setText(" ");
-                break;
             }
         }
     }

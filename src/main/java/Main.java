@@ -13,7 +13,7 @@ public class Main {
         LOGGER.info(Vector.getAngleBetweenVectors(new Vector(5,6), new Vector(7,8)));
 
 
-        SwingUse frame = new SwingUse();
+        SwingGUI frame = new SwingGUI();
 
 
 
