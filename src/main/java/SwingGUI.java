@@ -3,13 +3,12 @@ import org.apache.log4j.Logger;
 import lombok.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-
+import java.util.LinkedList;
 
 
 @Getter
 @Setter
 public class SwingGUI { // здесь было наследование от Listener
-
     private static final Logger LOGGER = Logger.getLogger(SwingGUI.class);
 
     private JFrame frame, resultFrame;
@@ -22,6 +21,9 @@ public class SwingGUI { // здесь было наследование от Lis
         this.frame = new JFrame("Vectors");
         frame.setSize(500,600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.resultFrame = new JFrame("Result");
+        resultFrame.setSize(250,100);
+        resultFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.label = new JLabel("Empty");
         //label.setBounds(100,400,250,50);
         buttonSum = new JButton("Сумма");
@@ -61,8 +63,8 @@ public class SwingGUI { // здесь было наследование от Lis
         frame.add(vector1y);
         frame.add(vector2x);
         frame.add(vector2y);
-
-        frame.setLayout(new SpringLayout());
+        resultFrame.add(label);
+        //frame.setLayout(new SpringLayout());
         frame.setLayout(null);
         frame.setVisible(true);
     }
@@ -71,25 +73,45 @@ public class SwingGUI { // здесь было наследование от Lis
         String command = event.getActionCommand();
         switch (command) {
             case "Сумма" -> {
-                Vector vectorSum1 = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
-                Vector vectorSum2 = new Vector(Integer.parseInt(vector2x.getText()), Integer.parseInt(vector2y.getText()));
+                if(!errorEmptyBox(true)){
+                    errorBox(false);
+                    break;
+                }
+                Vector vectorSum1 = new Vector(Integer.parseInt(vector1x.getText().replaceAll("\\s+","")), Integer.parseInt(vector1y.getText().replaceAll("\\s+","")));
+                Vector vectorSum2 = new Vector(Integer.parseInt(vector2x.getText().replaceAll("\\s+","")), Integer.parseInt(vector2y.getText().replaceAll("\\s+","")));
                 resultFrame();
                 label.setText(Vector.getSumOfVector(vectorSum1, vectorSum2).toString());
             }
             case "Разница" -> {
-                Vector vectorSub1 = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
-                Vector vectorSub2 = new Vector(Integer.parseInt(vector2x.getText()), Integer.parseInt(vector2y.getText()));
+                if(!errorEmptyBox(true)){
+                    errorBox(false);
+                    break;
+                }
+                Vector vectorSub1 = new Vector(Integer.parseInt(vector1x.getText().replaceAll("\\s+","")), Integer.parseInt(vector1y.getText().replaceAll("\\s+","")));
+                Vector vectorSub2 = new Vector(Integer.parseInt(vector2x.getText().replaceAll("\\s+","")), Integer.parseInt(vector2y.getText().replaceAll("\\s+","")));
                 resultFrame();
                 label.setText(Vector.getSubtractionOfVector(vectorSub1, vectorSub2).toString());
             }
             case "Длина" -> {
-                Vector vectorLength = new Vector((Integer.parseInt(vector1x.getText())), Integer.parseInt(vector1y.getText()));
+                if(!errorEmptyBox(false)){
+                    errorBox(false);
+                    break;
+                }
+                Vector vectorLength = new Vector((Integer.parseInt(vector1x.getText().replaceAll("\\s+",""))), Integer.parseInt(vector1y.getText().replaceAll("\\s+","")));
                 resultFrame();
                 label.setText(String.valueOf(Vector.getVectorLength(vectorLength)));
             }
             case "Угол" -> {
-                Vector vectorAngle1 = new Vector((Integer.parseInt(vector1x.getText())), Integer.parseInt(vector1y.getText()));
-                Vector vectorAngle2 = new Vector((Integer.parseInt(vector2x.getText())), Integer.parseInt(vector2y.getText()));
+                if((vector1x.getText().equals("0") && vector1y.getText().equals("0") || (vector2x.getText().equals("0") && vector2y.getText().equals("0")))){
+                    errorBox(true);
+                    break;
+                }
+                if(!errorEmptyBox(true)){
+                    errorBox(false);
+                    break;
+                }
+                Vector vectorAngle1 = new Vector((Integer.parseInt(vector1x.getText().replaceAll("\\s+",""))), Integer.parseInt(vector1y.getText().replaceAll("\\s+","")));
+                Vector vectorAngle2 = new Vector((Integer.parseInt(vector2x.getText().replaceAll("\\s+",""))), Integer.parseInt(vector2y.getText().replaceAll("\\s+","")));
                 //LOGGER.info(String.valueOf(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2)));
                 //LOGGER.info(Vector.getAngleBetweenVectors(vectorAngle1, vectorAngle2));
                 resultFrame();
@@ -104,17 +126,30 @@ public class SwingGUI { // здесь было наследование от Lis
                 vector1y.setText("vector 1 y");
                 vector2x.setText("vector 2 x");
                 vector2y.setText("vector 2 y");
-                label.setText(" ");
             }
         }
     }
 
     private void resultFrame(){
-        this.resultFrame = new JFrame("Result");
-        resultFrame.setSize(500,600);
-        resultFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        resultFrame.add(label);
         this.resultFrame.setVisible(true);
+    }
+
+    private void errorBox(boolean angleFlag)
+    {
+        if(angleFlag){
+            JOptionPane.showMessageDialog(null, "Нельзя посчитать угол с нулевым вектором");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Заполните пожалуйста все нужные поля числами");
+        }
+    }
+    private boolean errorEmptyBox(boolean fourVectors){
+
+        if(fourVectors){
+            return vector1x.getText().matches("-?\\d+(\\.\\d+)?") && vector1y.getText().matches("-?\\d+(\\.\\d+)?") && vector2x.getText().matches("-?\\d+(\\.\\d+)?") && vector2y.getText().matches("-?\\d+(\\.\\d+)?");
+        } else {
+            return vector1x.getText().matches("-?\\d+(\\.\\d+)?") && vector1y.getText().matches("-?\\d+(\\.\\d+)?");
+        }
     }
 
 }
