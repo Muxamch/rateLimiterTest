@@ -4,8 +4,6 @@ import lombok.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.LinkedList;
-
 
 @Getter
 @Setter
@@ -16,7 +14,8 @@ public class SwingGUI { // здесь было наследование от Lis
     private JLabel label;
     private JButton buttonSum, buttonSub, buttonLength, buttonAngle, buttonReset;
     private JTextField vector1x, vector1y, vector2x, vector2y;
-
+    private Vector newVector;
+    private DrawVector drawVector;
 
     SwingGUI(){
         this.frame = new JFrame("Vectors");
@@ -26,6 +25,7 @@ public class SwingGUI { // здесь было наследование от Lis
         this.resultFrame = new JFrame("Result");
         resultFrame.setSize(250,100);
         resultFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        resultFrame.setLocationRelativeTo(frame);
 
         this.label = new JLabel("Empty");
 
@@ -61,7 +61,7 @@ public class SwingGUI { // здесь было наследование от Lis
         frame.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent event){
+    private void actionPerformed(ActionEvent event){
         String command = event.getActionCommand();
         switch (command) {
             case "Сумма" -> {
@@ -71,7 +71,9 @@ public class SwingGUI { // здесь было наследование от Lis
                 }
                 Vector vectorSum1 = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
                 Vector vectorSum2 = new Vector(Integer.parseInt(vector2x.getText()), Integer.parseInt(vector2y.getText()));
-                label.setText("New " + Vector.getSumOfVector(vectorSum1, vectorSum2).toString());
+                this.newVector = Vector.getSumOfVector(vectorSum1, vectorSum2);
+                label.setText("New " + this.newVector.toString());
+                initiateDraw();
                 resultFrame();
             }
             case "Разница" -> {
@@ -81,7 +83,9 @@ public class SwingGUI { // здесь было наследование от Lis
                 }
                 Vector vectorSub1 = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
                 Vector vectorSub2 = new Vector(Integer.parseInt(vector2x.getText()), Integer.parseInt(vector2y.getText()));
-                label.setText("New " + Vector.getSubtractionOfVector(vectorSub1, vectorSub2).toString());
+                this.newVector = Vector.getSubtractionOfVector(vectorSub1, vectorSub2);
+                label.setText("New " + this.newVector.toString());
+                initiateDraw();
                 resultFrame();
             }
             case "Длина" -> {
@@ -90,7 +94,9 @@ public class SwingGUI { // здесь было наследование от Lis
                     break;
                 }
                 Vector vectorLength = new Vector((Integer.parseInt(vector1x.getText())), Integer.parseInt(vector1y.getText()));
+                this.newVector = new Vector(Integer.parseInt(vector1x.getText()), Integer.parseInt(vector1y.getText()));
                 label.setText("Длина = "+ Vector.getVectorLength(vectorLength));
+                initiateDraw();
                 resultFrame();
             }
             case "Угол" -> {
@@ -145,11 +151,18 @@ public class SwingGUI { // здесь было наследование от Lis
             return (vector1x.getText().matches("-?\\d+(\\.\\d+)?") &&
                     vector1y.getText().matches("-?\\d+(\\.\\d+)?") &&
                     vector2x.getText().matches("-?\\d+(\\.\\d+)?") &&
-                    vector2y.getText().matches("-?\\d+(\\.\\d+)?")); //проверяем, если есть цифры
+                    vector2y.getText().matches("-?\\d+(\\.\\d+)?")); //проверяем, если есть что то кроме цифр
         } else {
             return vector1x.getText().matches("-?\\d+(\\.\\d+)?") &&
                     vector1y.getText().matches("-?\\d+(\\.\\d+)?");
         }
     }
-
+    public void initiateDraw(){
+        this.drawVector = new DrawVector(this);
+        drawVector.setNewVector(this.newVector);
+        drawVector.init();
+    }
+    public void closeDraw(){
+        this.drawVector = null;
+    }
 }
